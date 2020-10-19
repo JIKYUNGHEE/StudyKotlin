@@ -6,12 +6,29 @@ android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
 
+    //변수 선언
+    def vName
+    def vCode
+    def versionPropsFile = file('version.properties')
+
+    //파일 읽기
+    if(versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        // 키값 대입
+        vName = versionProps['VERSION_NAME']
+        vCode = versionProps['VERSION_CODE'].toInteger()
+    } else {
+        throw new FileNotFoundException("Could not read version.properties.")
+    }
+
     defaultConfig {
         applicationId "com.gaeng0517.kotlinpractice"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 1
-        versionName "1.0"
+        versionCode vCode
+        versionName vName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
