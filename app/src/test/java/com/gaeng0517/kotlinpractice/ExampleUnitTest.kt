@@ -365,4 +365,42 @@ class ExampleUnitTest {
         gamesList.remove("스플랜더")
         print(gamesList)
     }
+
+    @Test
+    fun test3_1() {
+        val visitedCountries = arrayOf("Russia", "USA", "The Netherlands", "Greece", "Germany")
+        var i = 0
+        while (i < visitedCountries.size) {
+            println("Country at index $i is ${visitedCountries[i]}")
+            i++
+        }
+        println("====================================================")
+        i = 0
+
+        do {
+            println("Country at index $i is ${visitedCountries[i]}")
+            i++
+        } while (i < visitedCountries.size)
+    }
+
+    @Test
+    fun challenge3_1() {
+        var i = 0
+        while (i < 15) {
+            println("now number is ${i + 1}")
+            i++
+        }
+    }
+
+    @Test
+    fun challenge3_2() {
+        val names = arrayOf("지경희", "이소희", "유진")
+        var i = names.size
+        do {
+            if (i > names.lastIndex || i < 0) return
+
+            println("now name is ${names[i - 1]}")
+            i--
+        } while (i > 0)
+    }
 }
