@@ -235,9 +235,89 @@ class ExampleUnitTest {
     fun challenge5() {
         val name = "kyunghee"
         val lastName = "JI"
-        val nickName:String? = "Gaeng"
+        val nickName: String? = "Gaeng"
         val country = "KOREA"
         val age = 29
+    }
 
+    @Test
+    fun test2_1() {
+        val fullName = Pair<String, String>("KYUNGHEE", "JI")
+//        val age = 29
+        println("My name is ${fullName.first}, ${fullName.second}")
+
+//        val (name, lastName) = fullName
+//        println("My name is $name, $lastName")
+//        val person = Pair(fullName, 29)
+
+        val birthday = Triple(17, 5, 1992)
+        val person = Pair(fullName, birthday)
+
+        val nameUsingOrdering = person.first
+        val birthdayUsingOrdering = person.second
+
+        val (name, bday) = person
+        val (day, month, year) = bday
+
+        val yearOfBirth = bday.third
+        println("$name was born on $day / $month, year unknown!")
+    }
+
+    @Test
+    fun challenge2_1() {
+        val creditCard = Triple("1234-5678-90", "555", "VISA")  //(cardNumber, securityCode, type)
+        val bankAccount = Pair(16000.0, creditCard)
+
+        val (balance, card) = bankAccount
+        val (cardNumber, securityCode, type) = card
+
+        println("My bankAccount is $balance")
+        println("creditCard info: number is $cardNumber, securityCode is $securityCode, type is $type")
+    }
+
+    @Test
+    fun test2_2() {
+//        val country1 = "Russia"
+//        val country2 = "USA"
+//        val country3 = "Poland"
+
+        val visitedCountries = arrayOf(
+            "France", "Spain", "England", "Greece"
+        )
+
+        println(visitedCountries)
+        println(visitedCountries.size)
+
+        println(visitedCountries[3])
+
+//        println(visitedCountries[20])
+//        println(visitedCountries[-1])
+        visitedCountries + "Italy"
+        println(visitedCountries.size)
+
+        visitedCountries[1] = "KOREA"
+        println(visitedCountries[1])
+
+        val sizedArray = Array(10) { "" }
+        val emptyArray = emptyArray<String>()
+
+        val arrayOfInts = intArrayOf(2, 3, 4, 5, 6, 7)
+        println(arrayOfInts)
+
+        val intArray = IntArray(10)
+        println(intArray)
+
+        println(visitedCountries.lastIndex)
+        println(visitedCountries.last())
+        println(visitedCountries.first())
+
+        val currentCountry = "Spain"
+        println(visitedCountries.contains(currentCountry))
+
+        val hasVisitedSpain = currentCountry in visitedCountries
+        val hasNotVisitedSpain = currentCountry !in visitedCountries
+
+        println(hasVisitedSpain)
+        println(hasNotVisitedSpain)
     }
 }
