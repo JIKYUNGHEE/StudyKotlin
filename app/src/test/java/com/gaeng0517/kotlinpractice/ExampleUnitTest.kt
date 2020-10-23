@@ -351,4 +351,18 @@ class ExampleUnitTest {
         println(combinedList)
         println(emptyList)
     }
+
+    @Test
+    fun challenge2_3() {
+        val games = arrayOf("카트라이더", "버블팡", "오투잼", "모두의 마블", "스플랜더")
+        games[2]= "애니팡"
+        println(games[1])
+
+        val gamesList = games.toMutableList()
+        gamesList.add("기타숑숑")
+        gamesList.add("멍멍랜드")
+
+        gamesList.remove("스플랜더")
+        print(gamesList)
+    }
 }
