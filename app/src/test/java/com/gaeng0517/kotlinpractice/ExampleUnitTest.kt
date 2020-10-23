@@ -353,9 +353,9 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun challenge2_3() {
+    fun challenge2_2() {
         val games = arrayOf("카트라이더", "버블팡", "오투잼", "모두의 마블", "스플랜더")
-        games[2]= "애니팡"
+        games[2] = "애니팡"
         println(games[1])
 
         val gamesList = games.toMutableList()
