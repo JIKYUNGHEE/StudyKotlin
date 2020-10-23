@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">KotlinPractice</string>
+    <string name="splash_name">Splash</string>
+    <string name="hello_from_vb_bindfragment">helloFromVbBindFragment</string>
+    <string name="action_settings">Settings</string>
 </resources>
