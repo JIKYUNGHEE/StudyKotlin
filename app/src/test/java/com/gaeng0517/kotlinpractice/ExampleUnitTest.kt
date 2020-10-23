@@ -93,7 +93,7 @@ class ExampleUnitTest {
             val strangerName = "Tim"
             val myName = "Gaeng"
 
-            val isSameName = strangerName==myName
+            val isSameName = strangerName == myName
             println(isSameName)
 
             val areNamesDifferent = myName != strangerName
@@ -121,7 +121,7 @@ class ExampleUnitTest {
         val password1 = "123456"
         val password2 = "1234567890987654321"
 
-        fun isSecurePassword(password : String) : Boolean {
+        fun isSecurePassword(password: String): Boolean {
             return password.length >= 10
         }
 
@@ -130,9 +130,114 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun challenge2(){
+    fun challenge2() {
         val name1 = "TOM"
         val name2 = "TOM"
         println(name1.length == name2.length)
+    }
+
+    @Test
+    fun test4() {
+        val myAge = 29
+        val country = "Korea"
+
+        val isLegalDrivingAge =
+            (myAge >= 18 && country == "Korea") || (myAge >= 16 && country == "USA")
+        println(isLegalDrivingAge)
+
+        val ageMessage = if (myAge >= 18) "I'm an adult" else "I'm still underAged!"
+        println(ageMessage)
+        println(if (myAge >= 18) "I'm an adult" else "I'm still underAged!")
+
+        val yearOfBirth = 1992
+        val generationCohort = if (yearOfBirth > 1964 && yearOfBirth < 1980) {
+            "GenerationX"
+        } else if (yearOfBirth >= 1980 && yearOfBirth < 2000) {
+            "Milliner"
+        } else {
+            "Generation Z"
+        }
+        println(generationCohort)
+    }
+
+    @Test
+    fun challenge3() {
+        val userName = "khjihahahhoho"
+        val password = "password10101010101"
+        val email = "khji@mobileleder.com"
+        val isValidProperties =
+            if (userName.isEmpty() || password.isEmpty() || email.isEmpty()) {
+                "EMPTY"
+            } else if (userName.length < 6) {
+                "UserName is too short"
+            } else if (password.length < 10) {
+                "password is too short"
+            } else if (!email.contains("@") || !email.contains(".")) {
+                "email don't contain @ or ."
+            } else {
+                "VALID"
+            }
+
+        println(isValidProperties)
+    }
+
+    @Test
+    fun test6() {
+        val myName = "Filip"
+        val nickname: String? = null
+        val lastName: String? = null
+
+        println(nickname)
+
+        val nickNameLength = nickname?.length?.toDouble()
+        println(nickNameLength)
+
+        if (lastName != null) {
+            println("My last name is ${lastName.length} characters long")
+        } else {
+            println("I don't have a last name")
+        }
+
+        if (nickname?.isEmpty() == true) {
+            print("You don't have a nickname! It's length is ${nickname.length}")
+        }
+
+//        val notNullNickname = requireNotNull(nickname)
+//        println(notNullNickname.length)
+
+        val myNickname = nickname
+        println(myNickname)
+
+        val lastBirthday = 2020
+        val myAge: Int? = null
+
+        val myAgeNotNull = myAge ?: return
+        println("I was born in $myAgeNotNull")
+    }
+
+    @Test
+    fun challenge4() {
+        val password = "password"
+
+        val myPassword: String? = "12345"
+        val message = if (password == null || password.isEmpty()) {
+            "Ehm, you need a password to kee safe!"
+        } else if (password.length > 0 && password.length < 6) {
+            "Weak"
+        } else if (password.length > 10) {
+            "No one is getting through this"
+        } else {
+            "Ignored"
+        }
+    }
+
+    @Test
+    fun challenge5() {
+        val name = "kyunghee"
+        val lastName = "JI"
+        val nickName:String? = "Gaeng"
+        val country = "KOREA"
+        val age = 29
+
     }
 }
