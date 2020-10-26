@@ -589,12 +589,82 @@ class ExampleUnitTest {
     @Test
     fun challenge3_7() {
         val thisYear = 2020
-        val message = when(thisYear){
+        val message = when (thisYear) {
             in 1990..1999 -> "20th"
             in 2000..2010 -> "21th"
             in 2011..2020 -> "21.1th"
             else -> "This was loong age!"
         }
         println(message)
+    }
+
+    @Test
+    fun test4_1() {
+        val videoGamesCollections = mutableMapOf<String, MutableList<String>>()
+        println(videoGamesCollections)
+
+        videoGamesCollections.put(
+            "Action",
+            mutableListOf("Dark Souls", "Sekiro: Shadows Die Twice")
+        )
+        println(videoGamesCollections)
+
+//        val actionGames = videoGamesCollections.get("Action")
+        val actionGames = videoGamesCollections["Action"]
+        println(actionGames)
+
+        val actionGames2 = videoGamesCollections["GG"]
+        println(actionGames2)
+
+        val authenticationHeaders = mapOf(
+            "API_KEY" to "your-api-key",
+            "Authorization" to "auth token",
+            "content/type" to "application/json"
+        )
+        println(authenticationHeaders)
+
+        videoGamesCollections["Strategy"] = mutableListOf("Heroes of Might & Magic 3")
+        println(videoGamesCollections)
+
+        videoGamesCollections["Strategy"]?.add("Civilisation VI")
+        println(videoGamesCollections)
+
+        val removedActionGames = videoGamesCollections.remove("Action")
+        println(removedActionGames)
+        println(videoGamesCollections)
+
+//        authenticationHeaders["Authorization"] = "new api key"
+        videoGamesCollections["Strategy"]?.add("Command & Conquer")
+        videoGamesCollections["Shooter"] = mutableListOf("DDOM")
+        for (key in videoGamesCollections.keys) {
+            println(key)
+        }
+
+        for (value in videoGamesCollections.values) {
+            println(value)
+        }
+
+//        for(entry in videoGamesCollections){
+//            val (key, value) = entry
+//        }
+        for ((key, value) in videoGamesCollections) {
+            println("Video games in the $key genre you own are: $value")
+        }
+    }
+
+    @Test
+    fun challenge4_1() {
+        val animalMap = mutableMapOf(
+            "Remona" to "darksHootDog",
+            "Max" to "GermanShepardDog"
+        )
+        animalMap.toMutableMap()
+        animalMap["DDalki"] = "hihiDog"
+        animalMap.remove("DDalki")
+
+        for ((name, kind) in animalMap) {
+//           println("My animal name is $name, kind is $kind")
+            println("The pet $name is $kind")
+        }
     }
 }
