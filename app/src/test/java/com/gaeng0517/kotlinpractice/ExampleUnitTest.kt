@@ -701,11 +701,103 @@ class ExampleUnitTest {
 
     @Test
     fun challenge4_2() {
-        val strings = arrayListOf("item1", "item2", "item3", "item4","item1", "item2", "item3", "item4", "item1", "item2")
+        val strings = arrayListOf(
+            "item1",
+            "item2",
+            "item3",
+            "item4",
+            "item1",
+            "item2",
+            "item3",
+            "item4",
+            "item1",
+            "item2"
+        )
         val stringsSet = strings.toMutableSet()
         println(stringsSet.remove("item1"))
         for (s in stringsSet) {
             println(s)
         }
+    }
+
+    @Test
+    fun test5_1() {
+        fun createRange(start: Int, end: Int, isHalfOpen: Boolean = false): IntRange {
+            if (isHalfOpen) {
+                return start until end
+            } else {
+                return start..end
+            }
+        }
+
+        fun printRange(range: IntRange) {
+            for (number in range) print("$number \t")
+            println()
+        }
+
+        val classRange = createRange(1, 10)
+//        for(number in classRange) print("$number \t")
+        printRange(classRange)
+        val halfOpenClassRange = createRange(1, 10, true)
+        printRange(halfOpenClassRange)
+
+        val usingNamedArguments = createRange(isHalfOpen = true, end = 15, start = 1)
+        printRange(usingNamedArguments)
+
+        printRange(createRange(3, 6, isHalfOpen = true))
+    }
+
+    @Test
+    fun test5_2() {
+        fun createRange(start: Int, end: Int, isHalfOpen: Boolean = false): IntRange =
+            if (isHalfOpen) {
+                start until end
+            } else {
+                start..end
+            }
+
+        fun createRange(start: Char, end: Char, isHalfOpen: Boolean = false): CharRange =
+            if (isHalfOpen) {
+                start until end
+            } else {
+                start..end
+            }
+
+        fun printRange(range: IntRange) {
+            for (number in range) print("$number \t")
+            println()
+        }
+
+        fun printRange(range: CharRange) {
+            for (number in range) print("$number \t")
+            println()
+        }
+
+
+        val classRange = createRange(1, 10)
+//        for(number in classRange) print("$number \t")
+        printRange(classRange)
+        val halfOpenClassRange = createRange(1, 10, true)
+        printRange(halfOpenClassRange)
+
+        val usingNamedArguments = createRange(isHalfOpen = true, end = 15, start = 1)
+        printRange(usingNamedArguments)
+
+        printRange(createRange(3, 6, isHalfOpen = true))
+
+        val charRange = createRange('A', 'Z')
+        printRange(charRange)
+
+        fun parseCoordinates(input: String): Pair<Double, Double> {
+            val latitudeLongitude = input.split(",")
+
+            val latitude = latitudeLongitude[0].toDouble()
+            val longitude = latitudeLongitude[1].toDouble()
+
+            return latitude to longitude
+        }
+
+        val (latitude, longitude) = parseCoordinates("45.46, 18.62")
+        println("THe latitude is: $latitude, and the longtitude is :$longitude")
     }
 }
