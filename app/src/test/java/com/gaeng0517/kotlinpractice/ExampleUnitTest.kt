@@ -470,4 +470,77 @@ class ExampleUnitTest {
             print("$n ")
         }
     }
+
+    @Test
+    fun test3_3() {
+        val daysOfWeek =
+            listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+        for (day in daysOfWeek) {
+            if (day == "Monday") {
+                continue
+            }
+            println("Working!")
+
+            if (day == "Thursday") {
+                println("Get ready for the weekend!")
+                break
+            }
+        }
+
+        val matrix = MutableList(5) { MutableList(5) { "" } }
+        for (row in 0..matrix.lastIndex) {
+            for (column in 0..matrix.lastIndex) {
+                matrix[row][column] = "$row:$column"
+            }
+        }
+        print(matrix)
+        println("--------")
+
+        for (row in matrix) {
+            println(row)
+        }
+
+        val thirdRowFifthColumnElement = matrix[2][4]
+        println(thirdRowFifthColumnElement)
+
+        row@ for (row in 0..5) {
+            column@ for (column in 0..5) {
+                if (column == 2 && row == 2) {
+                    break@row
+                }
+                print("x\t")
+            }
+            println()
+        }
+    }
+
+    @Test
+    fun challenge3_6() {
+        val matrixRow = 5
+        val matrixColumn = 8
+        val matrix = MutableList(matrixRow) { MutableList(matrixColumn) { "." } }
+
+        matrix[3][6] = "X"
+
+        loop@ for (row in 0 until matrixRow) {
+            println("Searching in row $row")
+            for (column in 0 until matrixColumn) {
+                if (matrix[row][column] == "X") {
+                    println("Found X at $row:$column")
+                    break@loop
+                }
+            }
+        }
+//        row@ for (row in 0..matrix.lastIndex) {
+//            column@ for (column in 0..matrix.lastIndex) {
+//                if (column == 2 && row == 2) {
+//                    print("x\t")
+//                    break@column
+//                }
+//                print(".\t")
+//            }
+//            println()
+//        }
+    }
 }
