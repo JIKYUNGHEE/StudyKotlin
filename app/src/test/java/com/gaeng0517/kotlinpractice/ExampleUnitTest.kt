@@ -543,4 +543,58 @@ class ExampleUnitTest {
 //            println()
 //        }
     }
+
+    @Test
+    fun test3_4() {
+        val myAge = 25
+
+        when (myAge) {
+            25 -> println("Quarter century!")
+            23 -> println("Close to a quarter century")
+            else -> {
+                println("Don't know your age!")
+            }
+        }
+
+//        when(myAge){
+//            in 0..12 -> println("Still a young boy")
+//            in 13..19 -> println("Teenager")
+//            in 20..29 -> println("In my twenties")
+//            in 30..39 -> println("In my thirties")
+//            in 40..49 -> println("In my forties")
+//            else -> println("I'm a wise man :]")
+//        }
+        val message = when (myAge) {
+            in 0..12 -> "Still a young boy"
+            in 13..19 -> "Teenager"
+            in 20..29 -> "In my twenties"
+            in 30..39 -> "In my thirties"
+            in 40..49 -> "In my forties"
+            else -> "I'm a wise man :]"
+        }
+        println(message)
+
+        val email: String? = "khji@mobileleader.com"
+        val password: String? = "iLoveKotlin!"
+
+        when {
+            email == null || email.isEmpty() -> println("You need to choose email!")
+            "@" !in email -> println("Your email is invalid!")
+            password == null || password.isEmpty() -> println("You need to choose a password")
+            password.length < 10 -> println("Password not strong enough!")
+            else -> println("Email Length: ${email.length}, Password Length: ${password.length}")
+        }
+    }
+
+    @Test
+    fun challenge3_7() {
+        val thisYear = 2020
+        val message = when(thisYear){
+            in 1990..1999 -> "20th"
+            in 2000..2010 -> "21th"
+            in 2011..2020 -> "21.1th"
+            else -> "This was loong age!"
+        }
+        println(message)
+    }
 }
