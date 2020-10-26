@@ -403,4 +403,71 @@ class ExampleUnitTest {
             i--
         } while (i > 0)
     }
+
+    @Test
+    fun test3_2() {
+        val names = arrayOf("지경희", "이소희", "유진")
+
+        val rageFromZeroToTen = 0..10
+        println(rageFromZeroToTen)
+
+        val exclusiveRage = 0 until 10
+        println(exclusiveRage)
+
+        for (index in rageFromZeroToTen) {
+            print(index)
+        }
+
+        println("")
+
+        for (index in rageFromZeroToTen step 2) {
+            print(index)
+        }
+        println("")
+
+        for (index in 10 downTo 0) {
+            print(index)
+        }
+        println("")
+
+        for (index in 0..names.lastIndex) {
+            print(names[index])
+        }
+        println("")
+
+        for (name in names) {
+            print(name)
+        }
+    }
+
+    @Test
+    fun challenge3_3() {
+        val number = arrayListOf<Int>()
+        for (n in 10..30) {
+            number.add(n)
+        }
+        for (n in number) {
+            print("$n ")
+        }
+    }
+
+    @Test
+    fun challenge3_4() {
+        val number = arrayListOf<Int>()
+        for (n in 10..30) {
+            number.add(n)
+        }
+        for (n in 3..number.lastIndex step 3) {
+            print("$n ")
+        }
+    }
+
+    @Test
+    fun challenge3_5() {
+        val reverseRange = 30 downTo 15
+
+        for (n in reverseRange step 2) {
+            print("$n ")
+        }
+    }
 }
