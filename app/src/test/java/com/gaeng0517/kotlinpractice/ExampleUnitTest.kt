@@ -667,4 +667,45 @@ class ExampleUnitTest {
             println("The pet $name is $kind")
         }
     }
+
+    @Test
+    fun test4_2() {
+        val userIds = setOf("ID1B", "ID2C", "ID3F", "ID4I")
+        println(userIds)
+
+        println(userIds.contains("ID3F"))
+        println("ID3F" in userIds)
+
+        val mutableIds = userIds.toMutableSet()
+        println(mutableIds.add("ID0Z"))
+        println(mutableIds)
+
+        println(mutableIds.add("ID1B"))
+        println(mutableIds)
+
+        println(mutableIds.remove("ID1B"))
+        println(mutableIds)
+
+        for (userId in mutableIds) {
+            println(userId)
+        }
+
+        val names = arrayOf("Philip", "Mark", "Brian", "Joe", "Ted", "John", "Philip")
+        for (name in names) {
+            print("$name, ")
+        }
+        println()
+        val uniqNames = names.toSet()
+        println(uniqNames)
+    }
+
+    @Test
+    fun challenge4_2() {
+        val strings = arrayListOf("item1", "item2", "item3", "item4","item1", "item2", "item3", "item4", "item1", "item2")
+        val stringsSet = strings.toMutableSet()
+        println(stringsSet.remove("item1"))
+        for (s in stringsSet) {
+            println(s)
+        }
+    }
 }
