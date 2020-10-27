@@ -3,6 +3,7 @@ package com.gaeng0517.kotlinpractice
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.security.cert.CertPathValidator
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -799,5 +800,51 @@ class ExampleUnitTest {
 
         val (latitude, longitude) = parseCoordinates("45.46, 18.62")
         println("THe latitude is: $latitude, and the longtitude is :$longitude")
+    }
+
+    fun validatePassword(password:String) = password.length >= 10
+
+    @Test
+    fun test5_3() {
+        val email: String? = "email@mail.com"
+        val password: String? = "password"
+
+        fun validateString(input: String?, inputType: String) =
+            if (input == null || input.isBlank()) {
+                false
+            } else if (inputType == "Password") {
+                input.length >= 10
+            } else if (inputType == "Email") {
+                input.contains("@")
+            } else {
+                println("Cannot verify this input")
+
+                false
+            }
+
+        fun validateString(input: String?, validator: (String) -> Boolean) =
+            if (input == null || input.isBlank()) {
+                false
+            } else {
+                validator(input)
+            }
+        validateString("HelloWorld","Welcome message")
+
+        val isValidEmail = validateString(email, "Email")
+        println(isValidEmail)
+
+//        val isValidPassword = validateString(password) { input -> input.length >= 10 }
+//        println(isValidPassword)
+
+        val isValidPassword = validateString(password, ::validatePassword)
+        println(isValidPassword)
+
+        val passwordValidator = ::validatePassword
+        println(passwordValidator)
+
+        val validator:(String?) -> Boolean = {input ->
+            input != null && validatePassword(input)
+        }
+        println(validator)
     }
 }
