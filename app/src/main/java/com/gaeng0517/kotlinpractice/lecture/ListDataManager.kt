@@ -1,4 +1,4 @@
-package com.gaeng0517.kotlinpractice
+package com.gaeng0517.kotlinpractice.lecture
 
 import android.content.Context
 import androidx.preference.PreferenceManager
@@ -19,7 +19,10 @@ class ListDataManager(private val context: Context) {
 
         for (taskList in contents) {
             val taskItems = ArrayList(taskList.value as HashSet<String>)
-            val list = TaskList(taskList.key, taskItems)
+            val list = TaskList(
+                taskList.key,
+                taskItems
+            )
             taskLists.add(list)
         }
 

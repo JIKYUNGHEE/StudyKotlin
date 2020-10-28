@@ -1,10 +1,15 @@
-package com.gaeng0517.kotlinpractice
+package com.gaeng0517.kotlinpractice.lecture
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gaeng0517.kotlinpractice.R
 
-class TodoListAdapter(val lists: ArrayList<TaskList>) : RecyclerView.Adapter<TodoListViewHolder>() {
+class TodoListAdapter(val lists: ArrayList<TaskList>, val clickListener: TodoListClickListener) : RecyclerView.Adapter<TodoListViewHolder>() {
+
+    interface TodoListClickListener {
+        fun listItemClicked(list: TaskList)
+    }
 
     private var todoList = mutableListOf("Android Development", "House Work", "Errands")
 
@@ -25,7 +30,7 @@ class TodoListAdapter(val lists: ArrayList<TaskList>) : RecyclerView.Adapter<Tod
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.todo_list_view_holder, parent, false)
+            .inflate(R.layout.todo_list_lecture_view_holder, parent, false)
 
         return TodoListViewHolder(view)
     }
@@ -37,5 +42,8 @@ class TodoListAdapter(val lists: ArrayList<TaskList>) : RecyclerView.Adapter<Tod
     override fun onBindViewHolder(holder: TodoListViewHolder, position: Int) {
         holder.listPositionTextView.text = (position + 1).toString()
         holder.listTitleTextView.text = lists[position].name
+        holder.itemView.setOnClickListener{
+            clickListener.listItemClicked(lists[position])
+        }
     }
 }
