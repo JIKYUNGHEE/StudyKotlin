@@ -50,6 +50,7 @@ dependencies {
     implementation deps.support.core_ktx
     implementation deps.support.app_compat
     implementation deps.support.constraint_layout
+    implementation deps.support.preference
     implementation deps.google.android_mateiral
     testImplementation deps.test.junit
     androidTestImplementation deps.test.atsl_junit
