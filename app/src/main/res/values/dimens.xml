@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="number_width">50dp</dimen>
+    <dimen name="number_heigth">50dp</dimen>
+    <dimen name="number_text_size">24sp</dimen>
+    <dimen name="btn_lotto_width">300dp</dimen>
+    <dimen name="btn_lotto_height">200dp</dimen>
 </resources>

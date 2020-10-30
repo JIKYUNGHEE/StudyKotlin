@@ -47,6 +47,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation deps.kotlin_stdlib
+    implementation deps.lottie
     implementation deps.support.core_ktx
     implementation deps.support.app_compat
     implementation deps.support.constraint_layout

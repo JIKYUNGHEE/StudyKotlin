@@ -3,6 +3,7 @@ ext.deps = [:]
 def versions = [:]
 versions.android_gradle_version = "3.6.3"
 versions.kotlin_version = "1.3.72"
+versions.lottie_version = "3.4.4"
 
 versions.android_mateiral = "1.0.0"
 
@@ -27,6 +28,7 @@ def deps = [:]
 deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_version"
 deps.kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_version"
+deps.lottie = "com.airbnb.android:lottie:$versions.lottie_version"
 
 def google = [:]
 google.android_mateiral = "com.google.android.material:material:$versions.android_mateiral"
