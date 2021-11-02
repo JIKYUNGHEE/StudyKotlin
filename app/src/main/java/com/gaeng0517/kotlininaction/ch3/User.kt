@@ -9,7 +9,7 @@ fun saveUser(user: User) {
     }
 
     if(user.address.isEmpty()) {
-        throw IllegalArgumentException("Can't save user ${user.address} : empty Address")
+        throw IllegalArgumentException("Can't save user ${user.id} : empty Address")
     }
 
     //TODO. user 를 db 에 저장한다.
