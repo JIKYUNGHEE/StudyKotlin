@@ -11,6 +11,7 @@ fun saveUser(user: User) {
         }
     }
 
+    //FIXME. user 객체를 로컬함수에 계속 전달해야 함!
     validate(user, user.name, "Name")
     validate(user, user.address, "Address")
 
