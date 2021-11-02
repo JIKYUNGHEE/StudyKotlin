@@ -1,4 +1,4 @@
-package com.gaeng0517.kotlininaction.ch3
+package com.gaeng0517.kotlininaction.ch3.`6`
 
 class User(val id: Int, val name: String, val address: String)
 
