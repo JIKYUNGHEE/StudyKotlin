@@ -5,6 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gaeng0517.kotlinpractice.databinding.ActivityMainBinding
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener { /* 클릭시 수행할 동작 */ }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

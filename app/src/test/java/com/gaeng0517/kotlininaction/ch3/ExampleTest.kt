@@ -4,6 +4,8 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import com.gaeng0517.kotlininaction.ch3.`5`.parsePath
+import com.gaeng0517.kotlininaction.ch5.`1`.Person
+import com.gaeng0517.kotlininaction.ch5.`1`.findTheOldest
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -22,7 +24,17 @@ class ExampleTest {
     }
 
     @Test
-    fun ch_3_5_3_regex() {
+    fun ch3_5_2_split_print_use_regex() {
+        print( "12.345-6.A".split("\\.|-".toRegex()))
+    }
+
+    @Test
+    fun ch3_5_2_split_print_not_ues_regex() {
+        print( "12.345-6.A".split(".", "-"))
+    }
+
+    @Test
+    fun ch_3_5_3_parse_path() {
         parsePath("/Users/yole/kotlin-book/chapter.adoc")
     }
 
@@ -62,5 +74,29 @@ class ExampleTest {
 //        val price = "${dollar}99.9"
 
         println(price)
+    }
+
+    @Test
+    fun ch_5_1_1_use_for_loop() {
+        val people = listOf(Person("sybang", 20), Person("mjkim", 21), Person("khji", 26))
+        findTheOldest(people)
+    }
+
+    @Test
+    fun ch_5_1_2_use_lambda_maxBy() {
+        val people = listOf(Person("sybang", 20), Person("mjkim", 21), Person("khji", 26))
+        println(people.maxBy { it.age })
+    }
+
+    @Test
+    fun ch_5_1_3_use_member_reference() {
+        val people = listOf(Person("sybang", 20), Person("mjkim", 21), Person("khji", 26))
+        println(people.maxBy (Person::age))
+    }
+
+    @Test
+    fun ch_5_2_1_use_lambda() {
+        val people = listOf(Person("sybang", 20), Person("mjkim", 21), Person("khji", 26))
+        println(people.maxBy({ p:Person -> p.age}))
     }
 }

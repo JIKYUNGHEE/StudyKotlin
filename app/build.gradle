@@ -51,6 +51,8 @@ dependencies {
     implementation deps.support.app_compat
     implementation deps.support.constraint_layout
     implementation deps.google.android_mateiral
+    implementation 'androidx.navigation:navigation-fragment:2.3.3'
+    implementation 'androidx.navigation:navigation-ui:2.3.3'
     testImplementation deps.test.junit
     androidTestImplementation deps.test.atsl_junit
     androidTestImplementation deps.test.espresso_core
