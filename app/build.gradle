@@ -53,6 +53,8 @@ dependencies {
     implementation deps.google.android_mateiral
     implementation 'androidx.navigation:navigation-fragment:2.3.3'
     implementation 'androidx.navigation:navigation-ui:2.3.3'
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
     testImplementation deps.test.junit
     androidTestImplementation deps.test.atsl_junit
     androidTestImplementation deps.test.espresso_core
